@@ -1,0 +1,106 @@
+.grid-page {
+  position: relative;
+  width: 266px;
+  margin: 0 auto;
+  overflow: hidden;
+  .gridBox {
+    position: relative;
+    width: 266px;
+    margin: 0 auto;
+    .imageBox {
+      position: relative;
+      cursor: pointer;
+      border-radius: 7px;
+      width: 266px;
+      height: 194px;
+      float: left;
+      .imageItSelf {
+        position: relative;
+        border: solid 2px #bacc5b;
+        border-radius: 7px;
+        width: 266px;
+        height: 194px;
+      }
+      %common {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 240px;
+        margin-left: -120px;
+        height: 40px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .imageHint {
+        @extend %common;
+        border: solid 1px #bacc5b;
+        color: blue;
+        z-index: 1002;
+      }
+
+      %triangle {
+        content: "";
+        width: 0;
+        height: 0;
+        margin-left: 50%;
+        top: 38px;
+        position: absolute;
+      }
+      .imageHint:after {
+        @extend %triangle;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 30px solid #bacc5b;
+        left: 90px;
+        z-index: 1500;
+      }
+      .imageHint:before {
+        @extend %triangle;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 28px solid #cccccc;
+        opacity: 0.7;
+        left: 92px;
+        top: 38px;
+        z-index: 1501;
+      }
+
+      .underlay {
+        @extend %common;
+        background-color: #cccccc;
+        z-index: 1001;
+        opacity: 0.8;
+        border-radius: 5px;
+      }
+      .modal-header {
+        text-align: center;
+      }
+    }
+  }
+
+  .imageOwner, .bigImageTitle {
+    background-color: #ffffff;
+  }
+}
+  /* Responsive: smart phones landscape, tablets and up */
+  @media screen and (min-width: 768px) {
+    .grid-page {
+      width: 571px;
+      padding: 25px;
+      min-height: 400px;
+      .gridBox {
+        width: 610px;
+      }
+    }
+  }
+
+  /* Responsive: medium screen devices, tablets, laptops and up */
+  @media screen and (min-width: 960px) {
+    .grid-page {
+      width: 835px;
+      padding: 25px;
+      .gridBox {
+        width: 910px;
+      }
+    }
+  }

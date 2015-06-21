@@ -1,0 +1,101 @@
+.stacked-page {
+  min-width: 320px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  .allImages {
+    max-width: 1000px;
+    min-width: 320px;
+    margin: 0 auto;
+    position: relative;
+    width: 90%;
+    .col-md-col8, .col-md-4, .col-md-12, .row, .imageItSelfContainer {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .row{
+      margin:0;
+    }
+
+    .pagination{
+      margin: 9px 0 5px 0;
+    }
+    .filterBlock{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .col-sm-4{
+        position: relative;
+        min-height: 1px;
+        padding-right: 1px;
+        padding-left: 1px;
+      }
+    }
+  }
+  .itemContainer {
+    border: solid 2px #bacc5b;
+    border-radius: 4px;
+    width: 100%;
+  }
+  .imagesDescriptions {
+    font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    .span1 {
+      font-size: 2em;
+    }
+    .span2 {
+      font-size: 1.5em;
+    }
+    .span3 {
+      font-size: 0.9em;
+    }
+
+    .descContainer{
+      padding-left: 5px;
+    }
+  }
+  .imageItSelfContainer {
+    border-radius: 4px 0 0 4px;
+    width: 100%;
+    .imageItSelf {
+      width: 100%;
+      border-radius: 4px 0 0 4px;
+    }
+  }
+
+  .pagingControl {
+    background-color: #5f7a81;
+    border: solid 2px #bacc5b;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .pagingControl small {
+    color: #99c;
+  }
+
+}
+
+/* Responsive: smart phones landscape, tablets and up */
+@media screen and (min-width: 768px) {
+  .stacked-page {
+    width: 636px;
+    .allImages {
+      width: 636px;
+    }
+  }
+}
+
+/* Responsive: medium screen devices, tablets, laptops and up */
+@media screen and (min-width: 960px) {
+  .stacked-page {
+    width: 798px;
+    .allImages {
+      width: 798px;
+    }
+  }
+}
+
+
+

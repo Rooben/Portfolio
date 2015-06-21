@@ -1,0 +1,17 @@
+<div >
+  <ul class="listNav">
+    <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills')}" class="btn btn-default btn-block" ui-sref="skills" >Skills</a></li>
+    <li class="expandable"><a class="btn btn-default btn-block">Charts</a>
+      <ul class="hideable">
+        <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills/pieChart')}" class="btn btnInner btn-block" ui-sref="skills.demos({id:'pieChart'})">Pie Chart</a></li>
+        <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills/barChart')}" class="btn btnInner btn-block" ui-sref="skills.demos({id:'barChart'})">Bar Chart</a></li>
+        <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills/lineGraph')}" class="btn btnInner btn-block" ui-sref="skills.demos({id:'lineGraph'})">Line Graph</a></li>
+        <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills/histogram')}" class="btn btnInner btn-block" ui-sref="skills.demos({id:'histogram'})">Histogram</a></li>
+      </ul></li>
+    <li class="expandable"><a class="btn btn-default btn-block">Images</a>
+      <ul class="hideable">
+        <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills-imageDisplay-stacked')}" class="btn btnInner btn-block" ui-sref="skillsImageDisplayStacked" >Stacked</a></li>
+        <li><a ng-click="closeDemoMenu()" ng-class="{vertActive: isActive('/skills-imageDisplay-grid')}" class="btn btnInner btn-block" ui-sref="skillsImageDisplayGrid" >Grid</a></li>
+      </ul></li>
+  </ul>
+</div>

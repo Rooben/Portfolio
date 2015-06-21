@@ -1,0 +1,53 @@
+<div class="stacked-page">
+
+    <div class="allImages">
+      <!--<h3 class="welcomeHeader">Flickr Images Display</h3>-->
+
+      <div class="row filterBlock">
+        <div class="col-sm-4">
+          <h3>Page : {{ currentPage }} </h3>
+        </div>
+        <div class="col-sm-4">
+          <label for="search">Search for an Animal:</label>
+          <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+        </div>
+        <div class="col-sm-4">
+          <label for="search">Images per page:</label>
+          <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+        </div>
+      </div>
+
+
+      <div class="pagingControl">
+        <div class="text-center">
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/imagesDisplay/stackedDisplay/stacked_paginationControlPanel.html"></dir-pagination-controls>
+        </div>
+      </div>
+
+      <div dir-paginate="indx in flickArray| filter:q | itemsPerPage: pageSize" current-page="currentPage" class="itemContainer row">
+        <div class="col-md-12">
+          <div class="imageItSelfContainer">
+            <img class="imageItSelf" src="https://farm{{indx.farm}}.staticflickr.com/{{indx.server}}/{{indx.id}}_{{indx.secret}}.jpg" alt="IBM flickr image" title="IBM {{indx.id}}"/>
+          </div>
+          <div class="imagesDescriptions">
+            <div class="descContainer"><span class="span1">Title :</span> <span class="span1">{{indx.title | textModifier}}</span></div>
+            <div class="descContainer"><span class="span2">Owner :</span> <span class="span2"> {{indx.owner}}</span></div>
+            <div class="descContainer"><span class="span3">Identity : </span> <span class="span3">{{indx.id}}</span></div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="pagingControl">
+        <div class="text-center">
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/imagesDisplay/stackedDisplay/stacked_paginationControlPanel.html"></dir-pagination-controls>
+        </div>
+      </div>
+
+    </div>
+
+</div>
+
+
+

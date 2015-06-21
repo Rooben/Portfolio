@@ -1,0 +1,17 @@
+<div  class="grid-page">
+  <div set-height id="gridBox"   class="gridBox">
+    <!-- In the next line, "img" holds individual items in the imgs array coming from the Flickr API-->
+    <div ng-repeat="img in imgs" id="{{img.title}}"  class="imageBox">
+      <!--
+       In the next line, from left to right:
+       - Attribute 1(img-display), is a custom directive that displays all the images in a grid format.
+       - Attribute 2(img-transporter), is a variable through which img will be passed down to the directive scope.
+       - Attribute 3(custom-modal), is a custom directive whose job it is to display each item in the 'img' data, in a modal window.
+       - Attribute 4(showInModal function call), is a function that gets called each time an img item is clicked. This is what runs 'custom-modal'.
+       -->
+
+      <div img-display  img-transporter="img" custom-modal  ng-click="showInModal(img)"> </div>
+
+    </div>
+  </div>
+</div>

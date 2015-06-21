@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Roland's Portfolio</title>
+    <meta name="keywords" content="front-end, developer, portfolio, skills">
+    <meta name="description" content="Online presentation of skills, and mastered technologies by the Web Developer Roland Oben">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Petit+Formal+Script|Josefin+Slab:400,700|Marmelad|Marvel:400,700italic' rel='stylesheet' type='text/css'>
+  </head>
+  <body  ng-app="rolandApp" ng-controller="RootCtrl">
+    <div id="roldal"> </div>
+    <div id="roldal_over"></div>
+    <div class="spinnerContainer"><span id="loading"></span></div>  <!-- Loading spinner -->
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!--<div class="container">-->
+
+
+
+    <div class="row header"> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Header Start ++++++++ -->
+      <div id="navbarLine" class="horizontalNavBar col-md-12 navbar navbar-default" role="navigation">
+        <span class="hiddenPanelIndicator"> <span class="bolderArrow">&#8656; </span> Extra Menu </span>
+        <!--<div class="spinnerContainer"><span id="loading"></span></div>  &lt;!&ndash; Loading spinner &ndash;&gt;-->
+        <div ng-click="toggleDemoMenu()" class="demoMenu">
+          <img src="images/demos.png" alt="Menu widget"/>
+        </div>
+
+        <div class="currentPage" ng-cloak>{{currentPage}}</div>
+
+        <div ng-click="toggleMenu()" class="mobileMainMenu">
+          <img src="images/menu_widget.png" alt="Menu widget"/>
+        </div>
+
+            <ul active-tog class="nav navbar-nav">
+              <li ng-click="clearMenu()" ng-class="{customActive: isActive('/')}"><a href="#/">Home</a></li>
+              <li ng-click="clearMenu()" ng-class="{customActive: isActive('/about')}"><a ng-href="#/about">About</a></li>
+              <li ng-click="clearMenu()" ng-class="{
+                                customActive: isActive('/skills') ||
+                                isActive('/skills/pieChart') ||
+                                isActive('/skills/barChart') ||
+                                isActive('/skills/lineGraph') ||
+                                isActive('/skills/histogram')
+                  }"><a ng-href="#/skills">Skills</a></li>
+              <li ng-click="clearMenu()" ng-class="{customActive: isActive('/projects')}"><a ng-href="#/projects">Projects</a></li>
+              <li ng-click="clearMenu()" ng-class="{customActive: isActive('/contact')}"><a ng-href="#/contact">Contact</a></li>
+            </ul>
+
+      </div>
+    </div>  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Header End ++++++++ -->
+
+
+    <!--***************************  CENTRAL DISPLAY  ***************************-->
+
+      <div class="row centralDisplayBox">
+        <div class="col-md-12">
+          <div id="sideMenu" class="sideMenu"><!-- side column -->
+            <a ng-href="#/">
+              <img class="logo" ng-src="images/logo.png" alt="Personal logo" />
+            </a>
+            <div class="vertNav"  ui-view="siteRoot"></div>
+          </div>
+          <div class="calloutButton"></div> <!-- This listens for mouse over and then shows the hidded side menu -->
+          <div class="uiViewWindow" ui-view=""></div>
+        </div>
+      </div><!-- CENTRALDISPLAYBOX END -->
+
+    <!--*********************************  CENTRAL DISPLAY END *********************-->
+
+    <!-- FOOTER START -->
+    <div class="row mainFooter"> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Footer Start ++++++++ -->
+      <div class="col-md-12">
+        <p class="mainFooterCopyRight">
+          <span class="glyphicon glyphicon-registration-mark"></span> Copyright  ObenIT App Inc.
+        </p>
+      </div>
+    </div><!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ FOOTER End ++++++++ -->
+    <!-- FOOTER END -->
+
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/greensock/src/uncompressed/TweenMax.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/highcharts-release/highcharts.js"></script>
+    <script src="bower_components/highcharts-release/highcharts-more.js"></script>
+    <script src="bower_components/highcharts-release/modules/exporting.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="shared/libraries/heartcode-canvasloader-min-0.9.1.js"></script>
+    <script src="pages/imagesDisplay/stackedDisplay/pagination.js"></script>
+    <script src="pages/imagesDisplay/stackedDisplay/stacked-controller.js"></script>
+    <script src="pages/imagesDisplay/gridDisplay/grid-controller.js"></script>
+    <script src="shared/services/flickr-factory-service.js"></script>
+    <script src="shared/services/layOutService.js"></script>
+    <script src="pages/imagesDisplay/stackedDisplay/services/textModifier-filter-service.js"></script>
+    <script src="pages/imagesDisplay/gridDisplay/directives/grid_display-directive.js"></script>
+    <script src="pages/imagesDisplay/gridDisplay/directives/grid_custom_modal-directive.js"></script>
+
+
+    <script src="pages/app.js"></script>
+    <script src="pages/mainPages/home/home-controller.js"></script>
+    <script src="pages/mainPages/home/services/greensockTo-service.js"></script>
+    <script src="pages/mainPages/about/about-controller.js"></script>
+    <script src="pages/mainPages/about/directives/carouselAbout-directive.js"></script>
+    <script src="pages/mainPages/about/services/carouselData-service.js"></script>
+    <script src="pages/mainPages/about/services/greensockFromTo-service.js"></script>
+    <script src="pages/mainPages/skills/skills-controller.js"></script>
+    <script src="pages/mainPages/skills/demos/skillsdemo-controller.js"></script>
+    <script src="pages/mainPages/skills/demos/directives/barChart-directive.js"></script>
+    <script src="pages/mainPages/skills/demos/directives/histogram-directive.js"></script>
+    <script src="pages/mainPages/skills/demos/directives/lineGraph-directive.js"></script>
+    <script src="pages/mainPages/skills/demos/directives/pieChart-directive.js"></script>
+    <script src="pages/mainPages/projects/projects-controller.js"></script>
+    <script src="pages/mainPages/contact/contact-controller.js"></script>
+    <script src="shared/libraries/css3-mediaqueries.js"></script>
+    <script src="pages/mainPages/mainPages-app.js"></script>
+    <script src="pages/imagesDisplay/imagesDisplay-app.js"></script>
+    <!-- endbuild -->
+
+  <script type="text/javascript">
+    var cl = new CanvasLoader('loading');
+    cl.setColor('#7f6300'); // default is '#000000'
+    cl.setDiameter(90); // default is 40
+    cl.setDensity(12); // default is 40
+    cl.setRange(0.7); // default is 1.3
+    cl.setSpeed(1); // default is 2
+    cl.setFPS(30); // default is 24
+    cl.show(); // Hidden by default
+  </script>
+    <!-- endbuild -->
+</body>
+</html>
