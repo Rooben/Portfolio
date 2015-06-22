@@ -24,6 +24,7 @@ angular
 
   .run(function($rootScope){
     $(document).ready(function(){
+      //Elements to be hidden before the app starts.
       $('.spinnerContainer').hide();
     });
 

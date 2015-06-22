@@ -16,7 +16,6 @@
     }
   }
 
-
   .contact-card{
     width: 100%;
     height: 80%;
@@ -32,6 +31,16 @@
       right: 0px;
       top: 0;
       max-width: 240px;
+      padding: 20px 4px;
+      margin-top: 2px;
+    }
+    .remaining{
+      font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      border-radius: 3px;
+      padding: 1px;
+      border: solid 1px #8b8b8b;
+      background-color: #f9f6ec;
     }
   }
 
@@ -105,7 +114,7 @@
     font-size: 1.5em;
   }
   .contactForm div, .contactForm label {
-    padding: 0;
+    padding: 4px 0;
     margin: 0;
   }
 
@@ -158,7 +167,7 @@
       width: 440px;
       margin: 0 auto;
       input{
-        max-width: 300px;
+        max-width: 260px;
       }
     }
 

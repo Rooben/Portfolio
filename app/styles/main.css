@@ -1259,7 +1259,16 @@ h1, h2, h3, h4, h5 {
       position: absolute;
       right: 0px;
       top: 0;
-      max-width: 240px; }
+      max-width: 240px;
+      padding: 20px 4px;
+      margin-top: 2px; }
+    .contactContainer .formItem .remaining {
+      font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      border-radius: 3px;
+      padding: 1px;
+      border: solid 1px #8b8b8b;
+      background-color: #f9f6ec; }
   .contactContainer .contactDecor:before {
     content: "Contact Me";
     position: absolute;
@@ -1310,7 +1319,7 @@ h1, h2, h3, h4, h5 {
   .contactContainer .contactForm label {
     font-size: 1.5em; }
   .contactContainer .contactForm div, .contactContainer .contactForm label {
-    padding: 0;
+    padding: 4px 0;
     margin: 0; }
   .contactContainer .contactForm textarea {
     padding: 10px;
@@ -1354,7 +1363,7 @@ h1, h2, h3, h4, h5 {
       width: 440px;
       margin: 0 auto; }
       .contactContainer .contactForm input {
-        max-width: 300px; } }
+        max-width: 260px; } }
   @media screen and (max-width: 400px) {
     .contactContainer .contactDecor {
       width: 100%; }
