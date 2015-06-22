@@ -60,40 +60,45 @@ angular.module('mainPages.contact', [])
      proceedValue = generalValidator.validateForm('#contact_submit', "#contactFrm input[required=true], #contactFrm textarea[required=true]");
 
       //If the proceed value from the service is true, then proceed
-     if(proceedValue){
-          $("#feedbkLoader").show("slow"); //show the loader.
-           var res = $http({
-             url: '/pages/mainPages/contact/verify.php',
-             method: 'POST',
-             data: {
-               user_first : $("#con_fname").val(),
-               user_last  : $("#con_lname").val(),
-               user_email : $("#con_email").val(),
-               user_comnt : $("#con_message").val(),
-               spamBot_trick : $("#spamControl").val()
-             }
-           });
 
-       res.success(function(data){
-         $("#feedbkLoader").hide();
-         if (data.e_msg) {
-           $('#feedbkText').removeClass().addClass("error");
-           $('#feedbkText').html(data.e_msg);
-         }
-         if (data.s_msg) {
-           $('#feedbkText').removeClass().addClass("success");
-           $('#feedbkText').html(data.s_msg);
-         }
-       }).error(function(error){
-         $("#feedbkLoader").hide();
-         $('#feedbkText').removeClass().addClass("error");
-        // $('#feedbkText').html("Sorry, your details can not be submitted now, due to maintenance. Please try later.");
-         $('#feedbkText').removeClass().addClass("neutral");
-         $('#feedbkText').html(data.e_msg); /* For Debuging only! */
-       });
+    if(proceedValue){
+      console.log('Proceed is true, so you can now proceed with the php script.');
+    }
 
-
-        } //End of if proceed
+     //if(proceedValue){
+     //     $("#feedbkLoader").show("slow"); //show the loader.
+     //      var res = $http({
+     //        url: '/pages/mainPages/contact/verify.php',
+     //        method: 'POST',
+     //        data: {
+     //          user_first : $("#con_fname").val(),
+     //          user_last  : $("#con_lname").val(),
+     //          user_email : $("#con_email").val(),
+     //          user_comnt : $("#con_message").val(),
+     //          spamBot_trick : $("#spamControl").val()
+     //        }
+     //      });
+     //
+     //  res.success(function(data){
+     //    $("#feedbkLoader").hide();
+     //    if (data.e_msg) {
+     //      $('#feedbkText').removeClass().addClass("error");
+     //      $('#feedbkText').html(data.e_msg);
+     //    }
+     //    if (data.s_msg) {
+     //      $('#feedbkText').removeClass().addClass("success");
+     //      $('#feedbkText').html(data.s_msg);
+     //    }
+     //  }).error(function(error){
+     //    $("#feedbkLoader").hide();
+     //    $('#feedbkText').removeClass().addClass("error");
+     //   // $('#feedbkText').html("Sorry, your details can not be submitted now, due to maintenance. Please try later.");
+     //    $('#feedbkText').removeClass().addClass("neutral");
+     //    $('#feedbkText').html(data.e_msg); /* For Debuging only! */
+     //  });
+     //
+     //
+     //   } //End of if proceed
 
   });
 
