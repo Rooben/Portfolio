@@ -54,24 +54,6 @@ angular
       return route !== $location.path();
     };
 
-    // Check the url and if it is not one of the skills ui-states, don't show the demos button.
-    function conditionallyLoadDemoButton(){
-      myPortfolio.pathRegex = /^\/skills/;
-      myPortfolio.pageUrl = $location.path();
-      if(myPortfolio.pathRegex.test(myPortfolio.pageUrl)){
-        $('.demoMenu').show();  //If in the mobile devices the page is skills, show the Demos button.
-      }else{
-        $('.demoMenu').hide();
-      }
-    }
-
-    //Each time the state or url changes run this function to check if the demos button should be loaded, but check if in mobile view first.
-      $scope.$on('$stateChangeStart', function(){
-        if(screen_width < 768){
-          conditionallyLoadDemoButton(); // Check if the demos button is required, if so, then load it.
-        }
-      });
-
     $(document).ready(function(){
       $('#loading').hide();      //Stop the spinner once the the DOM is ready.
       //$(window).bind('resize', function() { location.reload(); });
