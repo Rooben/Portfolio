@@ -54,6 +54,7 @@ angular
       return route !== $location.path();
     };
 
+
     $(document).ready(function(){
       $('#loading').hide();      //Stop the spinner once the the DOM is ready.
       //$(window).bind('resize', function() { location.reload(); });
@@ -68,6 +69,14 @@ angular
           break;
         }
       };
+
+    // Check if the demos button is required, if so, then load it.
+      if(screen_width < 768){
+        $('.demoMenu').show();
+      }else{
+        $('.demoMenu').hide();
+      }
+
 
       layOutServant.showHide(); //Show - hide the left navigation panel and the footer.
 

@@ -622,10 +622,10 @@ h1, h2, h3, h4, h5 {
       width: 798px; } }
 .grid-page {
   position: relative;
-  width: 320px;
+  width: 310px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 25px; }
+  padding: 15px; }
   .grid-page .gridBox {
     position: relative;
     width: 266px;
