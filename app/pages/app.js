@@ -19,9 +19,6 @@ angular
     $urlRouterProvider.otherwise('/');
   })
 
-  .constant('APIKEY', 'a5e95177da353f58113fd60296e1d250')
-  .constant('USER_ID', '132365033@N08')
-
   .run(function($rootScope){
     $(document).ready(function(){
       //Elements to be hidden before the app starts.

@@ -26,14 +26,15 @@ angular.module('imagesDisplay.stacked', ['angularUtils.directives.dirPagination'
     });
   })
 
-  .controller('StackedCtrl', ['$scope', 'flickr_API', function ($scope, flickr_API) {
-    flickr_API.success(function(data){
-      var details = data.photos.photo;
-      $scope.flickArray = details;
-    }).error(function(error){
-      console.log(error);
-    });
-
+  .controller('StackedCtrl', ['$scope', 'photos_API', function ($scope, photos_API) {
+      photos_API.query().$promise.then(
+        function(data){
+          $scope.flickArray = data;
+        },
+        function(error){
+          console.log(error);
+        }
+      );
     $scope.currentPage = 1;
     $scope.pageSize = 2;
   }]);

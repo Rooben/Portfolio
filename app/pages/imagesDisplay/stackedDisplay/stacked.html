@@ -27,12 +27,12 @@
       <div dir-paginate="indx in flickArray| filter:q | itemsPerPage: pageSize" current-page="currentPage" class="itemContainer row">
         <div class="col-md-12">
           <div class="imageItSelfContainer">
-            <img class="imageItSelf" src="https://farm{{indx.farm}}.staticflickr.com/{{indx.server}}/{{indx.id}}_{{indx.secret}}.jpg" alt="IBM flickr image" title="IBM {{indx.id}}"/>
+            <img class="imageItSelf" ng-src="images/demoPhotos/{{indx.title}}.jpg" alt="Portfolio Demo Image"/>
           </div>
           <div class="imagesDescriptions">
             <div class="descContainer"><span class="span1">Title :</span> <span class="span1">{{indx.title | textModifier}}</span></div>
             <div class="descContainer"><span class="span2">Owner :</span> <span class="span2"> {{indx.owner}}</span></div>
-            <div class="descContainer"><span class="span3">Identity : </span> <span class="span3">{{indx.id}}</span></div>
+            <div class="descContainer"><span class="span2">Identity : </span> <span class="span2">{{indx.id}}</span></div>
           </div>
         </div>
       </div>

@@ -26,13 +26,8 @@ angular.module('imagesDisplay.grid', ['ngResource', 'ui.bootstrap'])
       });
   })
 
-  .controller('GridCtrl', ['$scope', 'flickr_API', function ($scope, flickr_API) {
-    flickr_API.success(function(data){
-      $scope.imgs = data.photos.photo;
-    }).error(function(error){
-      console.log(error);
-    });
-
+  .controller('GridCtrl', ['$scope', 'photos_API', function ($scope, photos_API) {
+    $scope.imgs =  photos_API.query();
   }]);
 
 

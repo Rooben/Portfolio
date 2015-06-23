@@ -8,7 +8,7 @@
  * Directive of the rolandApp
  */
 angular.module('imagesDisplay.grid')
-  .directive("imgDisplay", function(flickr_API){
+  .directive("imgDisplay", function(photos_API){
     return {
       restrict: 'EA',
       replace: true,
@@ -22,14 +22,14 @@ angular.module('imagesDisplay.grid')
       },
 
       link: function(scope){
-        flickr_API.success(function(data){
-          scope.imgs = data.photos.photo;
-        }).error(function(error){
+        photos_API.query(function(data){
+          scope.imgs = data;
+        }, function(error){
           console.log(error);
         });
 
         function scalePinIcon(pId, duration, value){       // Animates the image icon to grow or shrink, depending on value.
-          TweenMax.to('#' + pId, duration, value);
+          TweenMax.to('#img' + pId, duration, value);
         }
 
         scope.hovered = function(idx){

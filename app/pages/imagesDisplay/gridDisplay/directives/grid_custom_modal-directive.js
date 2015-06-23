@@ -47,15 +47,13 @@ angular.module('imagesDisplay.grid')
         $("html, body").animate({ scrollTop: 0 }, "fast");  //In very narrow devices, the image box get's hidden at the top, requires a scroll to top
 
         //++++++++++++++++ BUILD THE IMAGE URL using the Flickr raw data passed from ng-repeat in the view ++++++++++++++++++++++++++++++++++
-        rol_image.addClass('modalImg').attr("src", "https://farm" +
-        idx.farm + ".staticflickr.com/" + idx.server +
-        "/" + idx.id + "_" + idx.secret + ".jpg");
+        rol_image.addClass('modalImg').attr("src", "images/demoPhotos/" + idx.title + ".jpg");
         //++++++++++++++++ END OF IMAGE BUILD +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         rol_image.css({width: '100%', height: '100%'}); //Since the image box width and height are calculated above, now, just set image itself to get it's parent size.
 
         rol_title.html('<span> Title : ' + idx.title + '</span><br/>').addClass('bigImageTitle'); // Put the image title inside an h1 tag and give it a class.
-        rol_owner.html('Owner : ' + idx.owner);
+        rol_owner.html('Description : ' + idx.description);
         rol_owner.addClass('imageOwner');
 
         ovlay2.html('');  // Clear the image box before loading a new one, to prevent multiple

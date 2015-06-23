@@ -19,7 +19,6 @@ angular.module('mainPages.about', [])
             controller: 'AboutCtrl'
           },
           'siteRoot@': {
-            //templateUrl: 'pages/mainPages/sideNav.html'
             templateUrl: 'pages/mainPages/verticalNav.html',
             controller: 'RootCtrl'
           }

@@ -9,7 +9,7 @@
  */
 angular.module('mainPages.contact')
   .factory('generalValidator', function() {
-    var proceed = true; //Private variable
+    var proceed = false; //Private variable
     return {
       // Initial validation which checks if the user is entering the right characters
 
@@ -62,27 +62,31 @@ angular.module('mainPages.contact')
           //loop through each fields and we simply change border color to red for invalid fields
           $(formField_selector).each(function () {
             $(this).css('border-color', '');
-            if (!$.trim($(this).val())) { //if this field is empty
+            if ($.trim($(this).val())) { //if this field is not empty
+              proceed = true;
+            }else{
               $(this).css('border-color', 'red'); //change border color to red
               $(this).on("keyup", function () {  // If user starts typing, remove red border color
                 $(this).css('border-color', '');
               });
               proceed = false;                 //Set proceed to false, so that form should not be submitted.
+              return false;
             }
 
             //+++++++++++++++  check invalid email  +++++++++++++++++++++++++++++++++++++
-            var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var email_reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
             if ($(this).attr("type") === "email" && !email_reg.test($.trim($(this).val()))) {
               $(this).css('border-color', 'red'); //change border color to red
               $(this).on("keyup", function () {
                 $(this).css('border-color', '');
               });
               proceed = false;                 //If email is not valid, set proceed to false
-            }
+              return false;
+            }else{proceed = true;}
           });
           evt.preventDefault(); //Prevent the default form submission so that Ajax should take over. Deactivate if not needed.
           // If the javascript engine runs the above steps without changing the value of proceed to false, then something resonable was typed in by user.
-          if(proceed){alert('It is now okay to submit');}
+          if(proceed){console.log('It is now okay to submit');}
         });
 
         return proceed;  // The final value is the proceed flag, if it is true, proceed to next step.

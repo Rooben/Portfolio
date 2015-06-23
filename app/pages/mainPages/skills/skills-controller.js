@@ -25,12 +25,6 @@ angular.module('mainPages.skills', ['skills.demos'])
         }
       })
 
-      .state('skills.list', {
-        url: '/list',
-        templateUrl: 'pages/mainPages/verticalNav.html',
-        controller: 'RootCtrl'
-      })
-
       .state('skills.demos', {
         url: '/:id',
         views: {
