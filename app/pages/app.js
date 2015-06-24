@@ -34,8 +34,12 @@ angular
 
   //This controller enables the active nav button to be toggled based on the route. Needs a root controller since the navs are at the root level.
   .controller('RootCtrl', ['$scope', '$location', 'layOutServant', function ($scope, $location, layOutServant) {
-    var screen_width = document.documentElement.clientWidth;
+    var screenWidth = document.documentElement.clientWidth;
     var myPortfolio = {};
+
+    $scope.toggleSideMenu = function(){
+      layOutServant.enableSideMenu();
+    };
 
     $scope.isActive = function(route) { //used to toggle the customActive class in the nav bar.
       return route === $location.path();
@@ -71,7 +75,7 @@ angular
       };
 
     // Check if the demos button is required, if so, then load it.
-      if(screen_width < 768){
+      if(screenWidth < 768){
         $('.demoMenu').show();
       }else{
         $('.demoMenu').hide();
@@ -87,7 +91,7 @@ angular
          $(this).children('.hideable').stop().hide(1000);
       });
       // Same effect with the click event for the touch devices.
-      if(screen_width > 960){
+      if(screenWidth > 960){
         $('.expandable').on('click', function(){
           return false; // In screens medium and above screens, if user clicks on the buttons/links that are
                         // used only to expand and show the sub links, nothing should happen,with out this, it hides the panel.
@@ -131,6 +135,14 @@ angular
       myPortfolio.mobileNavStatus = 'closed'; //return menu status to closed for consistency sake.
     };
 
+
+    function foldUpMenu(){
+      TweenLite.fromTo('.sideMenu', 0.3, {display: 'block', height: '220px'}, {display: 'none', height: 0, ease:Sine.easeOut, onComplete: function(){
+        //**important to note here that the height specified here is responsible for the space allowed for the other elements. If you it becomes short, come and change here.
+        myPortfolio.menuStatus = 'closed';
+      }});
+    }
+
     // In the mobile view, show the secondary menu when user clicks on the demos button.
     myPortfolio.menuStatus = 'closed';
     $scope.toggleDemoMenu = function(){
@@ -143,13 +155,6 @@ angular
       else if(myPortfolio.menuStatus === 'opened'){
         //*************** slide menu up  *********************************************
         foldUpMenu();
-      }
-
-      function foldUpMenu(){
-        TweenLite.fromTo('.sideMenu', 0.3, {display: 'block', height: '220px'}, {display: 'none', height: 0, ease:Sine.easeOut, onComplete: function(){
-        //**important to note here that the height specified here is responsible for the space allowed for the other elements. If you it becomes short, come and change here.
-          myPortfolio.menuStatus = 'closed';
-        }});
       }
 
       //Re-use the foldUpMenu to fold up the menu each time it's li tag is clicked.

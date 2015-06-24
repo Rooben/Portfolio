@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name rolandApp.service:Service used to adjust the layout
+ * @name rolandApp.service:Service used to adjust the layout, also to hide and show the sideMenu
  * @description
  * # Layout service
  * Service of the rolandApp
@@ -21,11 +21,18 @@ angular.module('imagesDisplay.stacked')
         $('.sideMenu').on('mouseleave', function () {
           $(this).hide('slow');
         });
+      };
 
-        ////The next lines of code are just for decorative purposes, adjusting the layout for these pages alone.
-        //var refHeight = $('.centralDisplayBox').height();
-        //$('.home-page').css({height: refHeight + 'px', border: 'solid 1px red'});
-        //$('.jumbotron').css({height: refHeight + 'px', border: 'solid 1px red'});
+      // Toggle sideMenu only, required by the touch screen devices (no hover event).
+      var status = 1;
+      this.enableSideMenu = function(){
+        if(status === 2){
+          $('.sideMenu').show('fast');
+          status = 1;
+        }else{
+          $('.sideMenu').hide('fast');
+          status = 2;
+        }
       };
 
   });
