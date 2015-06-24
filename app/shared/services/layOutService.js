@@ -15,7 +15,9 @@ angular.module('imagesDisplay.stacked')
         });
 
         $('.sideMenu').on('click', function () {
+          if(document.documentElement.clientWidth >= 768) {
             $(this).hide('slow');
+          }
         });
 
         $('.sideMenu').on('mouseleave', function () {
