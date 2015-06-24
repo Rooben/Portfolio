@@ -37,15 +37,15 @@ angular
     var screenWidth = document.documentElement.clientWidth;
     var myPortfolio = {};
 
-    $scope.toggleSideMenu = function(){
+    $scope.toggleSideMenu = function(){ // SideMenu toggle required by devices less than 768 pixesls in width
       layOutServant.enableSideMenu();
     };
 
-    $scope.isActive = function(route) { //used to toggle the customActive class in the nav bar.
+    $scope.isActive = function(route) { //used to toggle the customActive class in the nav bar, which indicates which page the user is currently on.
       return route === $location.path();
     };
 
-    $scope.isActive = function(route) { //used to toggle the customActive class in the nav bar.
+    $scope.isActive = function(route) { //used to print out which page user is currently on (devices less than 768)
       if(route === $location.path()){
         myPortfolio.page =  route.substring(1, route.length).toUpperCase(); //Give me the current page in caps.
         if(myPortfolio.page === ''){myPortfolio.page = 'HOME';}
@@ -91,12 +91,16 @@ angular
          $(this).children('.hideable').stop().hide(1000);
       });
       // Same effect with the click event for the touch devices.
-      if(screenWidth > 960){
+
         $('.expandable').on('click', function(){
-          return false; // In screens medium and above screens, if user clicks on the buttons/links that are
-                        // used only to expand and show the sub links, nothing should happen,with out this, it hides the panel.
+          if(screenWidth > 768){
+          return false; // In medium and above screens, if user clicks on the buttons/links that are
+                        // used only to expand and show the sub links, nothing should happen, with out this, it hides the sideMenu panel.
+          }
+          else{
+            $(this).children('.hideable').stop().show('slow');
+          }
         });
-      }
 
     });
 
@@ -138,12 +142,12 @@ angular
 
     function foldUpMenu(){
       TweenLite.fromTo('.sideMenu', 0.3, {display: 'block', height: '220px'}, {display: 'none', height: 0, ease:Sine.easeOut, onComplete: function(){
-        //**important to note here that the height specified here is responsible for the space allowed for the other elements. If you it becomes short, come and change here.
+        //**important to note here that the height specified here is responsible for the space allowed for the other elements. If it becomes short, come and change here.
         myPortfolio.menuStatus = 'closed';
       }});
     }
 
-    // In the mobile view, show the secondary menu when user clicks on the demos button.
+    // In the mobile view, show the secondary menu(sideMenu) when user clicks on the demos button.
     myPortfolio.menuStatus = 'closed';
     $scope.toggleDemoMenu = function(){
       if(myPortfolio.menuStatus === 'closed'){
@@ -169,7 +173,7 @@ angular
     };
   }])
 
-  .directive('activeTog', function(){
+  .directive('activeTog', function(){ //This directive high lights which link is currently being viewed in the mobile devices.
     return{
       restrict: 'A',
       link: function(scope, elm){
