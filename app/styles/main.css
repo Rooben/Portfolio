@@ -6,7 +6,26 @@ html {
   box-sizing: inherit; }
 
 .hiddenPanelIndicator {
-  display: none; }
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 4px;
+  font-size: 12px;
+  font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .hiddenPanelIndicator .bolderArrow {
+    font-size: 30px; }
+
+.logoClickArea {
+  background: transparent;
+  width: 70px;
+  height: 70px;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 1000;
+  left: 47px;
+  top: 40px;
+  cursor: pointer; }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -336,6 +355,9 @@ h1, h2, h3, h4, h5 {
   .centralDisplayBox {
     min-height: 817px; }
 
+  .hiddenPanelIndicator {
+    display: block; }
+
   .vertNav {
     z-index: 15000; }
     .vertNav .listNav {
@@ -524,15 +546,7 @@ h1, h2, h3, h4, h5 {
 @media screen and (min-width: 960px) {
   .hiddenPanelIndicator {
     display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 4px;
-    font-size: 20px;
-    font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-  .bolderArrow {
-    font-size: 30px; }
+    top: 0; }
 
   .uiViewWindow {
     width: 100%;
