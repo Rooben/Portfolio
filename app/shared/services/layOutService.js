@@ -27,10 +27,10 @@ angular.module('imagesDisplay.stacked')
       var status = 1;
       this.enableSideMenu = function(){
         if(status === 2){
-          $('.sideMenu').show('fast');
+          $('.sideMenu').hide('fast');
           status = 1;
         }else{
-          $('.sideMenu').hide('fast');
+          $('.sideMenu').show('fast');
           status = 2;
         }
       };
