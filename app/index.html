@@ -32,7 +32,7 @@
 
     <div class="row header"> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Header Start ++++++++ -->
       <div id="navbarLine" class="horizontalNavBar col-md-12 navbar navbar-default" role="navigation">
-        <span class="hiddenPanelIndicator"> <span class="bolderArrow">&#8656; </span> Extra Menu </span>
+        <span class="hiddenPanelIndicator" ng-click="toggleSideMenu()"> <span class="bolderArrow">&#8656; </span> Extra Menu </span>
         <!--<div class="spinnerContainer"><span id="loading"></span></div>  &lt;!&ndash; Loading spinner &ndash;&gt;-->
         <div ng-click="toggleDemoMenu()" class="demoMenu">
           <img src="images/demos.png" alt="Menu widget"/>
@@ -68,8 +68,10 @@
         <div class="col-md-12">
           <div id="sideMenu" class="sideMenu"><!-- side column -->
             <a ng-href="#/">
-              <img class="logo" ng-src="images/logo.png" alt="Personal logo" />
+              <div class="logoClickArea"></div>
             </a>
+              <img class="logo" ng-src="images/logo.png" alt="Personal logo" />
+
             <div class="vertNav"  ui-view="siteRoot"></div>
           </div>
           <div class="calloutButton"></div> <!-- This listens for mouse over and then shows the hidded side menu -->
