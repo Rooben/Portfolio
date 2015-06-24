@@ -44,16 +44,18 @@ html {
 .hiddenPanelIndicator{
   display: none;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 30px;
+  top: 4px;
   padding: 4px;
   font-size: 12px;
   font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  .bolderArrow{
-    font-size: 30px;
-  }
 }
-
+.bolderArrow{
+  display: none;
+  position: absolute;
+  top: 4px;
+  font-size: 30px;
+}
 .logoClickArea{
   background: transparent;
   width: 70px;
@@ -400,6 +402,9 @@ h1, h2, h3, h4, h5{
   .hiddenPanelIndicator{
     display: block;
   }
+  .bolderArrow{
+    display: block;
+  }
 
   .vertNav{
     z-index: 15000;
@@ -598,7 +603,9 @@ h1, h2, h3, h4, h5{
   .hiddenPanelIndicator{
     display: block;
   }
-
+  .bolderArrow{
+    display: block;
+  }
   .uiViewWindow{
     width: 100%;
     margin: 0 auto;

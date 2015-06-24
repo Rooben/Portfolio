@@ -8,13 +8,17 @@ html {
 .hiddenPanelIndicator {
   display: none;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 30px;
+  top: 4px;
   padding: 4px;
   font-size: 12px;
   font-family: Marmelad, "Helvetica Neue", Helvetica, Arial, sans-serif; }
-  .hiddenPanelIndicator .bolderArrow {
-    font-size: 30px; }
+
+.bolderArrow {
+  display: none;
+  position: absolute;
+  top: 4px;
+  font-size: 30px; }
 
 .logoClickArea {
   background: transparent;
@@ -358,6 +362,9 @@ h1, h2, h3, h4, h5 {
   .hiddenPanelIndicator {
     display: block; }
 
+  .bolderArrow {
+    display: block; }
+
   .vertNav {
     z-index: 15000; }
     .vertNav .listNav {
@@ -545,8 +552,10 @@ h1, h2, h3, h4, h5 {
 /* Responsive: Medium Devices*/
 @media screen and (min-width: 960px) {
   .hiddenPanelIndicator {
-    display: block;
-    top: 0; }
+    display: block; }
+
+  .bolderArrow {
+    display: block; }
 
   .uiViewWindow {
     width: 100%;
