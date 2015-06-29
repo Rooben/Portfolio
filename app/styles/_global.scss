@@ -82,6 +82,9 @@ html {
   width: 100%;
 }
 
+.genGradientLeft, .genGradientRight{
+  display: none;
+}
 
 /*Give a responsive height to all the DOM containers in all the devices.*/
 //html, body, .uiViewWindow, .home-page, .aboutImagesContainer, .about-styles, .jumbotron{
@@ -396,7 +399,27 @@ h1, h2, h3, h4, h5{
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .centralDisplayBox{
+    position: relative;
     min-height: 817px;
+    %gxxd {
+      display: block;
+      width: 10%;
+      height: 100%;
+      position: absolute;
+      z-index: 5;
+      min-height: 817px;
+    }
+    .genGradientLeft {
+      @extend %gxxd;
+      left: 0;
+      background: linear-gradient(to right, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0));
+    }
+
+    .genGradientRight {
+      @extend %gxxd;
+      right: 0;
+      background: linear-gradient(to right, rgba(128, 128, 128, 0), rgba(128, 128, 128, 0.3));
+    }
   }
 
   .hiddenPanelIndicator{
