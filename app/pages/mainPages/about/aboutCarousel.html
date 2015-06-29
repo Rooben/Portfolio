@@ -24,8 +24,11 @@
       <div class="carousel-caption">
         <h3 class="captionText">{{qualityCategories[count]}}</h3>
         <div class="indicatorBox">
+
           <ol>
-            <li ng-repeat="disks in qualityCategories" ng-class="{hollowDisk: $index === titleNumber}" ng-click="loadText($index)"></li>
+            <li ng-repeat="disks in qualityCategories" ng-class="{hollowDisk: $index === titleNumber}"
+                ng-click="loadText($index)"  ng-mouseenter="popUpOn($index)" ng-mouseleave="popUpOff($index)" >
+               <span ng-show="$index === titleNr" class="discPopup">{{disks}}</span> </li>
           </ol>
         </div>
       </div>

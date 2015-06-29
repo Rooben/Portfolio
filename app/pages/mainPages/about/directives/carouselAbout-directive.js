@@ -42,19 +42,27 @@ angular.module('mainPages.about')
             scope.qualities = carouselData.details[count];
             scope.count = count;
             slideTextBoxIn(num);
-            scope.titleNumber = count;
+            scope.titleNumber = scope.titleNr = count;
             animatePersonalityImages(count);
           }
         };
 
         scope.qualityCategories = carouselData.titles; //provides the titles
 
+        scope.popUpOn = function(idx){
+          scope.titleNr = idx;
+        };
+        scope.popUpOff = function(){
+          scope.titleNr = -1;
+        };
+
+
         // The following function is required by direct click on the carousel disks in order to navigate the slides.
         scope.loadText = function(val){  //val is the index number passed from the directive scope, and plays same role as count.
           count = val;
           scope.qualities = carouselData.details[val];
           scope.count = val;
-          scope.titleNumber = val;
+          scope.titleNumber = scope.titleNr = val;
           slideTextBoxIn();
           animatePersonalityImages(val);
         };

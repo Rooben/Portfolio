@@ -885,6 +885,11 @@ h1, h2, h3, h4, h5 {
     cursor: pointer; }
   .about-styles .indicatorBox .hollowDisk {
     list-style-type: circle; }
+  .about-styles .indicatorBox .discPopup {
+    position: absolute;
+    font-size: 13px;
+    top: 10px;
+    margin-left: -32px; }
 .about-styles .emptyImg {
   position: absolute; }
 .about-styles .aboutImagesContainer {
