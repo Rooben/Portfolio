@@ -38,7 +38,7 @@
           <img src="images/demos.png" alt="Menu widget"/>
         </div>
 
-        <div class="currentPage" ng-cloak>{{currentPage}}</div>
+        <div class="currentPage" ng-cloak>{{currentPage | currentPageMobileTextFilter}}</div>
 
         <div ng-click="toggleMenu()" class="mobileMainMenu">
           <img src="images/menu_widget.png" alt="Menu widget"/>

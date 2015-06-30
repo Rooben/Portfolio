@@ -183,4 +183,21 @@ angular
         });
       }
     };
+  })
+
+  // Filter for current page text indicator. The text should not be too long.
+.filter('currentPageMobileTextFilter', function(){
+    return function(text2filter){
+      var limit;
+      limit = document.documentElement.clientWidth < 320 ? 12 : 19; // For mobile devices portrait format, limit text to 12 characters, else limit to 19.
+      if(typeof text2filter !== 'string'){
+        return text2filter;     // If this filter is applied to a non-string, don't filter it.
+      }
+      else if(text2filter.length > limit){
+        var textArray = text2filter.split('');
+        textArray.splice(limit);
+        textArray = textArray.join('');
+        return textArray;
+      }
+    };
   });
