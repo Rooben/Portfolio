@@ -190,16 +190,12 @@ angular
     return function(text2filter){
       var limit;
       limit = document.documentElement.clientWidth < 400 ? 12 : 19; // For mobile devices portrait format, limit text to 12 characters, else limit to 19.
-
       if(typeof text2filter !== 'string'){
         return text2filter;     // If this filter is applied to a non-string, don't filter it.
       }
-      else{
-        var textArray = text2filter.split('');
-        textArray.splice(limit);
-        textArray = textArray.join('');
-        return textArray;
-      }
-
+      var textArray = text2filter.split('');
+      textArray.splice(limit);
+      textArray = textArray.join('');
+      return textArray;
     };
   });
