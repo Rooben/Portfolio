@@ -67,7 +67,7 @@ angular.module('imagesDisplay.grid')
           fontSize: '15px',
           border: 'solid 3px #ffffff',
           borderRadius: '7px',
-          marginLeft: '-11px',
+          marginLeft: '-10px',
           marginTop: '-15px',
           position: 'absolute',
           minWidth: '250px'
