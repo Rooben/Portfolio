@@ -8,6 +8,11 @@
   right: 0;
 }
 
+%both{
+  -moz-box-shadow: 3px 5px 3px #333333;
+  -webkit-box-shadow: 3px 5px 3px #333333;
+  box-shadow: 3px 5px 3px #333333;
+}
 
 #roldal_over{
   display: none;
@@ -20,8 +25,10 @@
   top: 60px;
   margin-left: -480px;
   opacity: 1;
-  border: solid 5px #904818;
+  border: none;
   border-radius: 7px;
+  padding: 10px;
+  @extend %both;
 }
 
 .closeX{
@@ -32,4 +39,8 @@
   width: 30px;
   height: 30px;
   z-index: 20000;
+}
+
+.bigImageTitle{
+  @extend %both;
 }

@@ -65,9 +65,11 @@ angular.module('imagesDisplay.grid')
           fontFamily: 'Marmelad, Arial, Helvetica, sans-serif',
           padding: '4px',
           fontSize: '15px',
-          border: 'solid 4px #904818',
+          border: 'solid 3px #ffffff',
           borderRadius: '7px',
-          marginLeft: '-5px',
+          marginLeft: '-11px',
+          marginTop: '-15px',
+          position: 'absolute',
           minWidth: '250px'
         });
 

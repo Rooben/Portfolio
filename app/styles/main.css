@@ -751,6 +751,11 @@ h1, h2, h3, h4, h5 {
   left: 0;
   right: 0; }
 
+#roldal_over, .bigImageTitle {
+  -moz-box-shadow: 3px 5px 3px #333333;
+  -webkit-box-shadow: 3px 5px 3px #333333;
+  box-shadow: 3px 5px 3px #333333; }
+
 #roldal_over {
   display: none;
   position: absolute;
@@ -762,8 +767,9 @@ h1, h2, h3, h4, h5 {
   top: 60px;
   margin-left: -480px;
   opacity: 1;
-  border: solid 5px #904818;
-  border-radius: 7px; }
+  border: none;
+  border-radius: 7px;
+  padding: 10px; }
 
 .closeX {
   position: absolute;
@@ -887,7 +893,7 @@ h1, h2, h3, h4, h5 {
       left: 25%; }
 .about-styles .indicatorBox {
   position: relative;
-  width: 282px;
+  width: 286px;
   bottom: 22px;
   overflow: hidden;
   margin: 0 auto; }
